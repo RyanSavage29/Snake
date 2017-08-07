@@ -16,31 +16,31 @@ void draw()
   
   else if (highScores == true)
   {
-    highScores();
     background(50);
+    highScores();
   }
   
   else if (creditsMenu == true)
   {
-    creditsMenu();
     background(100);
+    creditsMenu();
   }
   
   else if (levelSelectMenu == true)
   {
-    levelSelectMenu();
     background(150);
+    levelSelectMenu();
   }
   
   else if (restartMenu == true)
   {
-    restartMenu();
     background(200);
+    restartMenu();
   }
   
   else if (pauseMenu == true)
   {
-    pauseMenu();
     background(250);
+    pauseMenu();
   }
 }

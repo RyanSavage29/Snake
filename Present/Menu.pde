@@ -1,15 +1,15 @@
 import controlP5.*;
 
 ControlP5 gui;
-controlP5.Button playMain, credits, highScore, quitMain, 
-                 selectRight, selectLeft, speed1, speed2, playLevel, backLevel, 
-                 resume, quitPause, 
-                 playRestart, quitRestart, 
-                 backCredits, 
-                 backScore;
+controlP5.Button playMain, credits, highScore, quitMain,                         //Main Menu
+                 selectRight, selectLeft, speed1, speed2, playLevel, backLevel,  //Level Select
+                 resume, quitPause,                                              //Pause
+                 playRestart, quitRestart,                                       //Restart
+                 backScore,                                                      //High Scores
+                 backCredits;                                                    //Credits
 
 boolean mainMenu = true;
-boolean levelSelectMenu, restartMenu, pauseMenu, creditsMenu, highScores, gameStart = false;
+boolean levelSelectMenu, gameStart, pauseMenu, restartMenu, highScores, creditsMenu = false;
 
 void mainMenu()
 {
@@ -17,11 +17,11 @@ void mainMenu()
     .show()
     .setOn();
     
-  credits
+  highScore
     .show()
     .setOn();
   
-  highScore
+  credits
     .show()
     .setOn();
     
@@ -32,7 +32,7 @@ void mainMenu()
 
 void levelSelectMenu()
 {
-  
+  /*
   selectRight
     .show()
     .setOn();
@@ -56,9 +56,10 @@ void levelSelectMenu()
   backLevel
     .show()
     .setOn();
+    */
 }
 
-void restartMenu()
+void gameStart()
 {
   
 }
@@ -68,27 +69,23 @@ void pauseMenu()
   
 }
 
-void creditsMenu()
+void restartMenu()
 {
-
-  backCredits
-    .show()
-    .setOn();
- 
+  
 }
 
 void highScores()
 {
- 
   backScore
     .show()
     .setOn();
- 
 }
 
-void gameStart()
+void creditsMenu()
 {
-   
+  backCredits
+    .show()
+    .setOn();
 }
  
 void setMenus()
@@ -100,30 +97,6 @@ void setMenus()
   createHighScores();
   createCredits();
   createPause();
-    
-  quitMain = gui.addButton("Quit")
-    .hide()
-    .setOff()
-    .setPosition(width/2 - 150, 750)
-    .setSize(300, 75)
-    .setId(4)
-    .activateBy(ControlP5.RELEASE);
-    
-  quitMain = gui.addButton("Quit")
-    .hide()
-    .setOff()
-    .setPosition(width/2 - 150, 750)
-    .setSize(300, 75)
-    .setId(4)
-    .activateBy(ControlP5.RELEASE);
-    
-  quitMain = gui.addButton("Quit")
-    .hide()
-    .setOff()
-    .setPosition(width/2 - 150, 750)
-    .setSize(300, 75)
-    .setId(4)
-    .activateBy(ControlP5.RELEASE);
 }
 
 void controlEvent(ControlEvent theEvent) 
@@ -192,20 +165,31 @@ void controlEvent(ControlEvent theEvent)
    case 12:
    
    break;
+   
+   //
+   case 13:
+   
+   break;
+   
+   //
+   case 14:
+   
+   break;
+   
+   //Switch from High Scores to Main Menu
+   case 15:
+   highScores = false;
+   mainMenu = true;
+   break;
+   
+   //Switch from Credits to Main Menu
+   case 16:
+   creditsMenu = false;
+   mainMenu = true;
+   break;
   }
   
-  playMain
-    .hide()
-    .setOff();
-  highScore
-    .hide()
-    .setOff();
-  credits
-    .hide()
-    .setOff();
-  quitMain
-    .hide()
-    .setOff();
+ hideMenus();
 }
 
 void createMainMenu()
@@ -245,12 +229,13 @@ void createMainMenu()
 
 void createLevelSelect()
 {
+  /*
     quitMain = gui.addButton("Quit")
     .hide()
     .setOff()
     .setPosition(width/2 - 150, 750)
     .setSize(300, 75)
-    .setId(4)
+    .setId(5)
     .activateBy(ControlP5.RELEASE);
     
   quitMain = gui.addButton("Quit")
@@ -258,7 +243,7 @@ void createLevelSelect()
     .setOff()
     .setPosition(width/2 - 150, 750)
     .setSize(300, 75)
-    .setId(4)
+    .setId(6)
     .activateBy(ControlP5.RELEASE);
     
   quitMain = gui.addButton("Quit")
@@ -266,7 +251,7 @@ void createLevelSelect()
     .setOff()
     .setPosition(width/2 - 150, 750)
     .setSize(300, 75)
-    .setId(4)
+    .setId(7)
     .activateBy(ControlP5.RELEASE);
     
   quitMain = gui.addButton("Quit")
@@ -274,7 +259,7 @@ void createLevelSelect()
     .setOff()
     .setPosition(width/2 - 150, 750)
     .setSize(300, 75)
-    .setId(4)
+    .setId(8)
     .activateBy(ControlP5.RELEASE);
     
   quitMain = gui.addButton("Quit")
@@ -282,7 +267,7 @@ void createLevelSelect()
     .setOff()
     .setPosition(width/2 - 150, 750)
     .setSize(300, 75)
-    .setId(4)
+    .setId(9)
     .activateBy(ControlP5.RELEASE);
     
   quitMain = gui.addButton("Quit")
@@ -290,66 +275,95 @@ void createLevelSelect()
     .setOff()
     .setPosition(width/2 - 150, 750)
     .setSize(300, 75)
-    .setId(4)
+    .setId(10)
     .activateBy(ControlP5.RELEASE);
+    */
+}
+
+void createPause()
+{
+  /*
+    quitMain = gui.addButton("Quit")
+    .hide()
+    .setOff()
+    .setPosition(width/2 - 150, 750)
+    .setSize(300, 75)
+    .setId(11)
+    .activateBy(ControlP5.RELEASE);
+    
+    quitMain = gui.addButton("Quit")
+    .hide()
+    .setOff()
+    .setPosition(width/2 - 150, 750)
+    .setSize(300, 75)
+    .setId(12)
+    .activateBy(ControlP5.RELEASE);
+    */
+}
+
+void createRestart()
+{
+  /*
+    quitMain = gui.addButton("Quit")
+    .hide()
+    .setOff()
+    .setPosition(width/2 - 150, 750)
+    .setSize(300, 75)
+    .setId(13)
+    .activateBy(ControlP5.RELEASE);
+    
+  quitMain = gui.addButton("Quit")
+    .hide()
+    .setOff()
+    .setPosition(width/2 - 150, 750)
+    .setSize(300, 75)
+    .setId(14)
+    .activateBy(ControlP5.RELEASE);
+    */
 }
 
 void createHighScores()
 {
-    quitMain = gui.addButton("Quit")
+    backScore = gui.addButton("Back to Main Menu")
     .hide()
     .setOff()
     .setPosition(width/2 - 150, 750)
     .setSize(300, 75)
-    .setId(4)
+    .setId(15)
     .activateBy(ControlP5.RELEASE);
 }
 
 void createCredits()
 {
-    quitMain = gui.addButton("Quit")
+    backCredits = gui.addButton("Return to Main Menu")
     .hide()
     .setOff()
-    .setPosition(width/2 - 150, 750)
+    .setPosition(100, 800)
     .setSize(300, 75)
-    .setId(4)
+    .setId(16)
     .activateBy(ControlP5.RELEASE);
 }
 
-void createPause()
+void hideMenus()
 {
-    quitMain = gui.addButton("Quit")
+  playMain
     .hide()
-    .setOff()
-    .setPosition(width/2 - 150, 750)
-    .setSize(300, 75)
-    .setId(4)
-    .activateBy(ControlP5.RELEASE);
+    .setOff();
+  highScore
+    .hide()
+    .setOff();
+  credits
+    .hide()
+    .setOff();
+  quitMain
+    .hide()
+    .setOff();
     
-    quitMain = gui.addButton("Quit")
+  backScore
     .hide()
-    .setOff()
-    .setPosition(width/2 - 150, 750)
-    .setSize(300, 75)
-    .setId(4)
-    .activateBy(ControlP5.RELEASE);
-}
-
-void createRestart()
-{
-    quitMain = gui.addButton("Quit")
-    .hide()
-    .setOff()
-    .setPosition(width/2 - 150, 750)
-    .setSize(300, 75)
-    .setId(4)
-    .activateBy(ControlP5.RELEASE);
+    .setOff();
     
-  quitMain = gui.addButton("Quit")
+  backCredits
     .hide()
-    .setOff()
-    .setPosition(width/2 - 150, 750)
-    .setSize(300, 75)
-    .setId(4)
-    .activateBy(ControlP5.RELEASE);
+    .setOff();
 }
