@@ -31,4 +31,15 @@ Songs?
 Credits Seqeunce to go over all of the art assets to see what they represent and people who worked on it
 
 Idenfi level and when she grabs the item, she gets a plushie gryffon follower, make the level a cube for asura homeland
+
+Deatha's Revenge
+Add 2 level specific jokes in, cookie and a cage at guild wars
+
+Additional captues will appear twice as likely
+
+save high scores for each level
+
+quotes based on score
+
+pokemon with rowlet, maud the cat?
 */
