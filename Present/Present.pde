@@ -5,6 +5,20 @@ void setup()
   size(900, 900);
   background(0);
   setMenus();
+  
+  checkSave();
+  if (saveExists == false)
+  {
+    print("Created Save");
+    createSave();
+  }
+  
+  checkProgression();
+  if (progressionExists == false)
+  {
+    println("Created Progression");
+    createProgression();
+  }
 }
 
 void draw()
