@@ -32,6 +32,12 @@ void draw()
     levelSelectMenu();
   }
   
+  else if (gameStart == true)
+  {
+    background(250);
+    gameStart();
+  }
+  
   else if (restartMenu == true)
   {
     background(200);
