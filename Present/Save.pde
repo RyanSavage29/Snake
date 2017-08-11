@@ -9,7 +9,7 @@ void createSave()
   
   for (int i = 0; i < 5; i++)
   {
-    scores.println(0 + "," + 8 + "," + 8 + "," + 2017);
+    scores.println(0 + "," + month() + "/" + day() + "/" + year());
   }
   
   scores.flush();
@@ -36,7 +36,7 @@ void checkSave()
 
 void checkProgression()
 {
-  f = new File(dataPath("Scores.txt"));
+  f = new File(dataPath("Progression.txt"));
   if (f.exists())
   {
     progressionExists = true;

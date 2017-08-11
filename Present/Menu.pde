@@ -55,18 +55,24 @@ void levelSelectMenu()
     .show()
     .setOn();
     
-  selectLeft
-    .setPosition(width/2 - 150, 150)
-    .setSize(50, 75)
-    .show()
-    .setOn();
+  if (currentLevel > 1)
+  {
+    selectLeft
+      .setPosition(width/2 - 150, 150)
+      .setSize(50, 75)
+      .show()
+      .setOn();
+  }
     
-  selectRight
-    .setPosition(width/2 - 150, 250)
-    .setSize(300, 75)
-    .show()
-    .setOn();
-    
+  if (currentLevel < 2)
+  {
+    selectRight
+      .setPosition(width/2 - 150, 250)
+      .setSize(300, 75)
+      .show()
+      .setOn();
+  }
+  
   speed1
     .setPosition(width/5 - 50, 750)
     .setSize(100, 100)
@@ -223,12 +229,12 @@ void controlEvent(ControlEvent theEvent)
    
    //Check Levels to the Left
    case 11:
-   
+   currentLevel -= 1;
    break;
    
    //Check Levels to the Right
    case 12:
-   
+   currentLevel += 1;
    break;
    
    //Slowest Speed

@@ -1,5 +1,12 @@
 Snake snake;
-
+/*
+PImage[] tile;
+ArrayList<World> worlds = new ArrayList<World>();
+ArrayList worldTiles = new ArrayList();
+*/
+int currentLevel = 1;/*
+int worldSize = 2;
+*/
 void setup()
 {
   size(900, 900);
@@ -9,7 +16,7 @@ void setup()
   checkSave();
   if (saveExists == false)
   {
-    print("Created Save");
+    println("Created Save");
     createSave();
   }
   
@@ -19,6 +26,12 @@ void setup()
     println("Created Progression");
     createProgression();
   }
+  /*
+  for (int j = 1, i = 0; i < worldSize; j++, i++)
+  {
+    worlds.add(new World(j, false));
+  }
+  */
 }
 
 void draw()
@@ -63,4 +76,14 @@ void draw()
     background(250);
     pauseMenu();
   }
+}
+
+void setLevel1()
+{
+  
+}
+
+void setLevel2()
+{
+  
 }

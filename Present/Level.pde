@@ -23,3 +23,21 @@ int[][] level1Grid =
   { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, //18
   { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, //19
   { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0} }; //20
+/*
+void renderGrid(int col, int row, int tileRow, int tileCol, int level[][])
+{
+  
+}
+
+void renderGridCell()
+{
+  if (col < 0 || col >= level.length || row < 0 || row >= level.length)
+  {
+    image(tile[6], tileRow*tileWidth, tileCol*tileHeight);
+  }
+  else
+  {
+    image(tile[level[col][row]], tileRow*tileWidth, tileCol*tileHeight);
+  }
+}
+*/
