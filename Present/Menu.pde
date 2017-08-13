@@ -139,13 +139,17 @@ void restartMenu()
     .setOn();
 }
 
+//Sets and Turns On the Button to Return to Main Menu
+//Prints the High Scores onto the Screen
 void highScores()
 {
   backToMain
-    .setPosition(width/2 - 150, 450)
+    .setPosition(width/2 - 150, 750)
     .setSize(300, 75)
     .show()
     .setOn();
+    
+    printHighScores();
 }
 
 void creditsMenu()
@@ -274,13 +278,13 @@ void createMenus()
     .setId(2)
     .activateBy(ControlP5.RELEASE);
 
-  toCredits = gui.addButton("Credits")
+  toCredits = gui.addButton("High Scores")
     .hide()
     .setOff()
     .setId(6)
     .activateBy(ControlP5.RELEASE);
     
-  toScores = gui.addButton("High Scores")
+  toScores = gui.addButton("Credits")
     .hide()
     .setOff()
     .setId(7)

@@ -11,21 +11,26 @@ void setup()
 {
   size(900, 900);
   background(0);
+  
+  //Creates and places all the menus as hidden and off
   setMenus();
   
+  //Creates a new save file for High Scores if one doesn't already exist
   checkSave();
-  if (saveExists == false)
+  if (!checkSave())
   {
-    println("Created Save");
     createSave();
   }
   
+  /* Not needed yet until progression is completed
+  
   checkProgression();
-  if (progressionExists == false)
+  if (!checkProgression())
   {
-    println("Created Progression");
     createProgression();
   }
+  */
+  
   /*
   for (int j = 1, i = 0; i < worldSize; j++, i++)
   {
@@ -38,6 +43,7 @@ void draw()
 {
   if (mainMenu == true)
   {
+    background(0);
     mainMenu();
   }
   
