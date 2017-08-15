@@ -58,7 +58,7 @@ void levelSelectMenu()
   if (currentLevel > 1)
   {
     selectLeft
-      .setPosition(width/2 - 150, 150)
+      .setPosition(100, 450)
       .setSize(50, 75)
       .show()
       .setOn();
@@ -67,8 +67,8 @@ void levelSelectMenu()
   if (currentLevel < 2)
   {
     selectRight
-      .setPosition(width/2 - 150, 250)
-      .setSize(300, 75)
+      .setPosition(800, 450)
+      .setSize(50, 75)
       .show()
       .setOn();
   }
