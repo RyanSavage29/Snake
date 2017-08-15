@@ -233,12 +233,12 @@ void controlEvent(ControlEvent theEvent)
    
    //Check Levels to the Left
    case 11:
-   currentLevel -= 1;
+   levelCheck -= 1;
    break;
    
    //Check Levels to the Right
    case 12:
-   currentLevel += 1;
+   levelCheck += 1;
    break;
    
    //Slowest Speed

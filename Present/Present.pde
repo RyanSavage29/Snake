@@ -1,10 +1,10 @@
 Snake snake;
-/*
-PImage[] tile;
+
+PImage[] tile;/*
 ArrayList<World> worlds = new ArrayList<World>();
 ArrayList worldTiles = new ArrayList();
 */
-int currentLevel = 1;/*
+int levelCheck = 1;/*
 int worldSize = 2;
 */
 void setup()
