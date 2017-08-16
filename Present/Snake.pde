@@ -16,24 +16,24 @@ class Snake
 
 void update(float speed)
 {
-  if (snake.north == true)
+  if (snek.north == true)
   {
-    snake.y -= speed;
+    snek.y -= speed;
   }
   
-  if (snake.south == true)
+  if (snek.south == true)
   {
-    snake.y += speed;
+    snek.y += speed;
   }
 
-  if (snake.west == true)
+  if (snek.west == true)
   {
-    snake.x -= speed;
+    snek.x -= speed;
   }
   
-  if (snake.east == true)
+  if (snek.east == true)
   {
-    snake.x += speed;
+    snek.x += speed;
   }
 }
 
@@ -49,33 +49,33 @@ void death()
 
 void direction(int num)
 {
-  switch (num)
-  {
-    case 1:
-    resetDirections();
-    snake.north = true;
-    break;
+    switch (num)
+    {
+      case 1:
+      resetDirections();
+      snek.north = true;
+      break;
     
-    case 2:
-    resetDirections();
-    snake.south = true;
-    break;
+      case 2:
+      resetDirections();
+      snek.south = true;
+      break;
     
-    case 3:
-    resetDirections();
-    snake.west = true;
-    break;
+      case 3:
+      resetDirections();
+      snek.west = true;
+      break;
     
-    case 4:
-    resetDirections();
-    snake.east = true;
-    break;
-  }
+      case 4:
+      resetDirections();
+      snek.east = true;
+      break;
+    }
 }
 
 void renderSnake()
 {
-  image(tile[2], snake.x, snake.y);
+  image(tile[2], snek.x, snek.y);
 }
 
 void setPosition1()
@@ -85,14 +85,30 @@ void setPosition1()
 
 void setPosition2()
 {
-  snake.x = 1*50;
-  snake.y = 9*50;
+  snek.x = 1*50;
+  snek.y = 9*50;
 }
 
 void resetDirections()
 {
-  snake.north = false;
-  snake.south = false;
-  snake.east = false;
-  snake.west = false;
+  snek.north = false;
+  snek.south = false;
+  snek.east = false;
+  snek.west = false;
+}
+
+void setFood(int row, int col)
+{
+  if (level[row][col] == 1)
+  {
+    level[row][col] = 3;
+    food = true;
+  }
+  
+  else
+  {
+    row = int(random(17));
+    col = int(random(17));
+    setFood(row, col);
+  }
 }
