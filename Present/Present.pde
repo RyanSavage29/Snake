@@ -1,16 +1,15 @@
-Snake snake;
+ Snake snake;
 
-PImage[] tile;/*
-ArrayList<World> worlds = new ArrayList<World>();
-ArrayList worldTiles = new ArrayList();
-*/
-int levelCheck = 1;/*
-int worldSize = 2;
-*/
+PImage[] tile;
+int levelCheck = 1;
+float speed = 1;
+
 void setup()
 {
   size(900, 900);
   background(0);
+  
+  loadTiles();
   
   //Creates and places all the menus as hidden and off
   setMenus();
@@ -37,6 +36,8 @@ void setup()
     worlds.add(new World(j, false));
   }
   */
+  
+  snake = new Snake(0, 0, false, false, false, true);
 }
 
 void draw()
@@ -82,14 +83,9 @@ void draw()
     background(250);
     pauseMenu();
   }
-}
-
-void setLevel1()
-{
-  
-}
-
-void setLevel2()
-{
-  
+  else if (game == true)
+  {
+    background(250);
+    runGame();
+  }
 }

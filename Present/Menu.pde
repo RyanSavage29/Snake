@@ -18,7 +18,7 @@ Restart \
 */
 
 boolean mainMenu = true;
-boolean levelSelectMenu, gameStart, pauseMenu, restartMenu, highScores, creditsMenu = false;
+boolean levelSelectMenu, gameStart, pauseMenu, restartMenu, highScores, creditsMenu, game = false;
 
 void mainMenu()
 {
@@ -55,7 +55,7 @@ void levelSelectMenu()
     .show()
     .setOn();
     
-  if (currentLevel > 1)
+  if (levelCheck > 1)
   {
     selectLeft
       .setPosition(100, 450)
@@ -64,7 +64,7 @@ void levelSelectMenu()
       .setOn();
   }
     
-  if (currentLevel < 2)
+  if (levelCheck < 2)
   {
     selectRight
       .setPosition(800, 450)
@@ -243,22 +243,24 @@ void controlEvent(ControlEvent theEvent)
    
    //Slowest Speed
    case 13:
-   
+   speed = .5;
    break;
    
    //Middle Speed
    case 14:
-   
+   speed = 1;
    break;
    
    //Fastest Speed
    case 15:
-   
+   speed = 1.5;
    break;
    
    //Play Level
    case 16:
-   
+   resetMenus();
+   currentLevel();
+   gameStart = true;
    break;
   }
  hideMenus();
