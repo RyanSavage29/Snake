@@ -58,7 +58,7 @@ void levelSelectMenu()
   if (levelCheck > 1)
   {
     selectLeft
-      .setPosition(100, 450)
+      .setPosition(50, 450)
       .setSize(50, 75)
       .show()
       .setOn();
@@ -243,17 +243,17 @@ void controlEvent(ControlEvent theEvent)
    
    //Slowest Speed
    case 13:
-   speed = .5;
+   speed = 1;
    break;
    
    //Middle Speed
    case 14:
-   speed = 1;
+   speed = 2;
    break;
    
    //Fastest Speed
    case 15:
-   speed = 1.5;
+   speed = 3;
    break;
    
    //Play Level

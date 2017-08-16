@@ -1,6 +1,8 @@
 int[][] level;
 int tileWidth = 50;
 int tileHeight = tileWidth;
+int foodRow = int(random(17)), foodCol = int(random(17));
+boolean food = false;
 
 int[][] level1Grid = 
   //0, 1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17
@@ -57,7 +59,7 @@ void renderGrid()
 
 void loadTiles()
 {
-  tile = new PImage[3];
+  tile = new PImage[4];
   
   for (int i = 0; i < tile.length; i++)
   {
@@ -84,6 +86,32 @@ void currentLevel()
 void runGame()
 {
   renderGrid();
+  
+  if (food == false)
+  {
+    setFood(foodRow, foodCol);
+  }
+  
   renderSnake();
+  
+  switch (check)
+  {
+    case 1:
+    wait(check, snek.x);
+    break;
+    
+    case 2:
+    wait(check, snek.x);
+    break;
+    
+    case 3:
+    wait(check, snek.y);
+    break;
+    
+    case 4:
+    wait(check, snek.y);
+    break;
+  }
+  
   update(speed);
 }

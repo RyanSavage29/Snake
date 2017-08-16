@@ -1,4 +1,4 @@
- Snake snake;
+ Snake snek;
 
 PImage[] tile;
 int levelCheck = 1;
@@ -8,7 +8,7 @@ void setup()
 {
   size(900, 900);
   background(0);
-  
+  frameRate(60);
   loadTiles();
   
   //Creates and places all the menus as hidden and off
@@ -37,7 +37,7 @@ void setup()
   }
   */
   
-  snake = new Snake(0, 0, false, false, false, true);
+  snek = new Snake(0, 0, false, false, false, true);
 }
 
 void draw()
