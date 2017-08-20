@@ -2,16 +2,17 @@
 
 PImage[] tile;
 int levelCheck = 1;
-float speed = 1;
+float speed = 5;
 
 void setup()
 {
   size(900, 900);
   background(0);
-  frameRate(60);
+  
+  //Loads all of the tiles into an array
   loadTiles();
   
-  //Creates and places all the menus as hidden and off
+  //Creates and sets all the menus as hidden and off
   setMenus();
   
   //Creates a new save file for High Scores if one doesn't already exist
@@ -30,17 +31,15 @@ void setup()
   }
   */
   
-  /*
-  for (int j = 1, i = 0; i < worldSize; j++, i++)
-  {
-    worlds.add(new World(j, false));
-  }
-  */
-  
-  snek = new Snake(0, 0, false, false, false, true);
+  snek = new Snake();
 }
 
 void draw()
+{
+  gameState();
+}
+
+void gameState()
 {
   if (mainMenu == true)
   {
@@ -88,4 +87,22 @@ void draw()
     background(250);
     runGame();
   }
+}
+
+void runGame()
+{
+  frameRate(speed);
+  
+  renderGrid();
+  
+  if (eatFood(food, snek.x, snek.y))
+  {
+    food.div(scale);
+    level[int(food.x)][int(food.y)] = 1;
+    setFood(int(random(17)), int(random(17)));
+  }
+  
+  snek.update();
+  snek.display();
+  snek.death();
 }

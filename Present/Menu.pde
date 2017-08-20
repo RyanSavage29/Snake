@@ -183,6 +183,7 @@ void controlEvent(ControlEvent theEvent)
    case 2:
    resetMenus();
    levelSelectMenu = true;
+   levelCheck = 1;
    break;
    
    //To Game Start
@@ -228,7 +229,9 @@ void controlEvent(ControlEvent theEvent)
    //Restart
    case 10:
    resetMenus();
+   currentLevel();
    gameStart = true;
+   setFood(int(random(17)), int(random(17)));
    break;
    
    //Check Levels to the Left
@@ -243,17 +246,17 @@ void controlEvent(ControlEvent theEvent)
    
    //Slowest Speed
    case 13:
-   speed = 1;
+   speed = 5;
    break;
    
    //Middle Speed
    case 14:
-   speed = 2;
+   speed = 7;
    break;
    
    //Fastest Speed
    case 15:
-   speed = 3;
+   speed = 10;
    break;
    
    //Play Level
@@ -261,6 +264,7 @@ void controlEvent(ControlEvent theEvent)
    resetMenus();
    currentLevel();
    gameStart = true;
+   setFood(int(random(17)), int(random(17)));
    break;
   }
  hideMenus();
@@ -424,4 +428,5 @@ void resetMenus()
   restartMenu = false;
   highScores = false;
   creditsMenu = false;
+  game = false;
 }

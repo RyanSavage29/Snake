@@ -1,9 +1,7 @@
 int[][] level;
-int tileWidth = 50;
-int tileHeight = tileWidth;
-int foodRow = int(random(17)), foodCol = int(random(17));
-boolean food = false;
+int scale = 30;
 
+// Totoro Level
 int[][] level1Grid = 
   //0, 1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17
 { { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, // 0
@@ -25,6 +23,7 @@ int[][] level1Grid =
   { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, //16
   { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0} }; //17
   
+// Guild Wars 2 Level
 int[][] level2Grid = 
   //0, 1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17
 { { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}, // 0
@@ -52,7 +51,7 @@ void renderGrid()
   {
     for (int col = 0, tileCol = 0; col <= 17; col++, tileCol++)
     {   
-      image(tile[level[col][row]], tileRow*tileWidth, tileCol*tileHeight);
+      image(tile[level[col][row]], tileRow*scale, tileCol*scale);
     }
   }
 }
@@ -73,45 +72,12 @@ void currentLevel()
   {
     case 1:
     level = level1Grid;
-    setPosition1();
+    snek.setPosition1();
     break;
     
     case 2:
     level = level2Grid;
-    setPosition2();
+    snek.setPosition2();
     break;
   }
-}
-
-void runGame()
-{
-  renderGrid();
-  
-  if (food == false)
-  {
-    setFood(foodRow, foodCol);
-  }
-  
-  renderSnake();
-  
-  switch (check)
-  {
-    case 1:
-    wait(check, snek.x);
-    break;
-    
-    case 2:
-    wait(check, snek.x);
-    break;
-    
-    case 3:
-    wait(check, snek.y);
-    break;
-    
-    case 4:
-    wait(check, snek.y);
-    break;
-  }
-  
-  update(speed);
 }
