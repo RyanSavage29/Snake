@@ -2,7 +2,7 @@ PrintWriter scores, progression;
 Table table;
 boolean saveExists, progressionExists = false;
 File f;
-int newScore;
+int newScore = 0;
 
 //Creates a new High Score save file in csv file type with scores of 0 and current date
 void createSave()
@@ -57,7 +57,6 @@ void checkProgression()
 //Updates the High Scores when the player achieves a High Score by adding, sorting, and then removing the lowest High Score, cannot go past 5 High Scores
 void updateScores()
 {
-  newScore = int(random(20)); //temp, remove when game is completed
   loadSave();
   
   TableRow row = table.addRow();

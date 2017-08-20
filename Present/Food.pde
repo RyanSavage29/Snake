@@ -26,6 +26,7 @@ boolean eatFood(PVector pos, float snekX, float snekY)
     if (d < 1) 
     {
       snek.total++;
+      newScore += 50;
       return true;
     } 
     else 

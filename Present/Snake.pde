@@ -49,6 +49,8 @@ class Snake
       
       if (d < 1) 
       {
+        updateScores();
+        newScore = 0;
         level[int(food.x/scale)][int(food.y/scale)] = 1;
         total = 0;
         tail.clear();
@@ -59,6 +61,8 @@ class Snake
     
     if (level[int(x/scale)][int(y/scale)] == 0)
       {
+        updateScores();
+        newScore = 0;
         level[int(food.x/scale)][int(food.y/scale)] = 1;
         total = 0;
         tail.clear();
@@ -99,7 +103,9 @@ class Snake
   
   void setPosition1()
   {
-  
+    x = 3*scale;
+    y = 3*scale;
+    direction(4);
   }
 
   void setPosition2()
