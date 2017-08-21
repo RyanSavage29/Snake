@@ -49,6 +49,7 @@ class Snake
       
       if (d < 1) 
       {
+        println("death by tail");
         updateScores();
         newScore = 0;
         level[int(food.x/scale)][int(food.y/scale)] = 1;
@@ -59,8 +60,9 @@ class Snake
       }
     }
     
-    if (level[int(x/scale)][int(y/scale)] == 0)
+    if (level[int(y/scale)][int(x/scale)] == 0)
       {
+        println("death by colision");
         updateScores();
         newScore = 0;
         level[int(food.x/scale)][int(food.y/scale)] = 1;

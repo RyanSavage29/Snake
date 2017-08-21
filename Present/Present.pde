@@ -7,7 +7,6 @@ float speed = 5;
 void setup()
 {
   size(900, 900);
-  background(0);
   
   //Loads all of the tiles into an array
   loadTiles();
@@ -36,6 +35,7 @@ void setup()
 
 void draw()
 {
+  background(0);
   gameState();
 }
 
@@ -43,48 +43,40 @@ void gameState()
 {
   if (mainMenu == true)
   {
-    background(0);
     mainMenu();
   }
   
   else if (highScores == true)
   {
-    background(50);
     highScores();
   }
   
   else if (creditsMenu == true)
   {
-    background(100);
     creditsMenu();
   }
   
   else if (levelSelectMenu == true)
   {
-    background(150);
     levelSelectMenu();
   }
   
   else if (gameStart == true)
   {
-    background(250);
     gameStart();
   }
   
   else if (restartMenu == true)
   {
-    background(200);
     restartMenu();
   }
   
   else if (pauseMenu == true)
   {
-    background(250);
     pauseMenu();
   }
   else if (game == true)
   {
-    background(250);
     runGame();
   }
 }
@@ -97,11 +89,16 @@ void runGame()
   
   if (eatFood(food, snek.x, snek.y))
   {
-    food.div(scale);
-    level[int(food.x)][int(food.y)] = 1;
-    setFood(int(random(17)), int(random(17)));
+    setFood(int(random(29)), int(random(29)));
   }
   
+  if (eatSpecial(special, snek.x, snek.y))
+  {
+    setSpecial(int(random(29)), int(random(29)));
+  }
+  
+  image(tile[4], food.x, food.y);
+  image(tile[5], special.x, special.y);
   snek.update();
   snek.display();
   snek.death();
