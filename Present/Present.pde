@@ -11,7 +11,9 @@ void setup()
   //Loads all of the tiles into an array
   loadTiles();
   
+  //Loads all of the food and special sprites into an array
   loadFood();
+  
   //Creates and sets all the menus as hidden and off
   setMenus();
   
