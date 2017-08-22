@@ -30,6 +30,7 @@ void keyPressed()
     {
       resetMenus();
       game = true;
+      playLevelMusic();
     }
   }
 }

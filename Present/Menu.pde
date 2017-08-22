@@ -214,6 +214,7 @@ void controlEvent(ControlEvent theEvent)
    case 7:
    resetMenus();
    creditsMenu = true;
+   creditsMusic.loop();
    break;
    
    //Quit
@@ -264,7 +265,7 @@ void controlEvent(ControlEvent theEvent)
    resetMenus();
    currentLevel();
    gameStart = true;
-   setFood(int(random(17)), int(random(17)));
+   setFood(int(random(29)), int(random(29)));
    break;
   }
  hideMenus();
@@ -429,4 +430,6 @@ void resetMenus()
   highScores = false;
   creditsMenu = false;
   game = false;
+  
+  resetMusic();
 }

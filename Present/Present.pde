@@ -29,7 +29,7 @@ void setup()
     createProgression();
   }
   */
-  
+  createAudio();
   snek = new Snake();
 }
 
@@ -92,13 +92,13 @@ void runGame()
     setFood(int(random(29)), int(random(29)));
   }
   
-  if (eatSpecial(special, snek.x, snek.y))
+  /*if (eatSpecial(special, snek.x, snek.y))
   {
     setSpecial(int(random(29)), int(random(29)));
-  }
+  }*/
   
   image(tile[4], food.x, food.y);
-  image(tile[5], special.x, special.y);
+  //image(tile[5], special.x, special.y);
   snek.update();
   snek.display();
   snek.death();

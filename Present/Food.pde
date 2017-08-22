@@ -19,7 +19,7 @@ void setFood(int row, int col)
     }
     
   //need to rework this so that food doesn't change the grid tiles, only builds a food object over it
-  if (level[row][col] == 1 && tailCheck == false && !(row == special.x && col == special.y))
+  if (level[row][col] == 1 && tailCheck == false/* && !(row == special.x && col == special.y)*/)
   {
     food = new PVector(row, col);
     food.mult(scale);
