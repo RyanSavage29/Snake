@@ -12,7 +12,7 @@ void createAudio()
   
   totoro = new AudioPlayer[3];
   
-  for (int i = 0; i < 3; i++)
+  for (int i = 0; i < totoro.length; i++)
   {
     totoro[i] = minim.loadFile("Music/Totoro" + i + ".mp3");
   }

@@ -7,7 +7,7 @@ void setFood(int row, int col)
 {
   for (PVector v : snek.tail) 
     {
-      if (col == v.x/scale && row == v.y/scale)
+      if (col == v.y/scale && row == v.x/scale)
       {
         tailCheck = true;
         break;

@@ -11,6 +11,7 @@ void setup()
   //Loads all of the tiles into an array
   loadTiles();
   
+  loadFood();
   //Creates and sets all the menus as hidden and off
   setMenus();
   
@@ -78,6 +79,14 @@ void gameState()
   else if (game == true)
   {
     runGame();
+    if (foodAnimation == 0)
+    {
+      foodAnimation += 1;
+    }
+    else
+    {
+      foodAnimation -= 1;
+    }
   }
 }
 
@@ -97,7 +106,7 @@ void runGame()
     setSpecial(int(random(29)), int(random(29)));
   }*/
   
-  image(tile[4], food.x, food.y);
+  image(cheese[foodAnimation], food.x, food.y);
   //image(tile[5], special.x, special.y);
   snek.update();
   snek.display();
