@@ -1,8 +1,10 @@
+boolean turn = false;
+
 void keyPressed()
 {
   if (key == CODED)
   {
-    if (game == true)
+    if (game == true && !turn)
     {
       if (keyCode == UP && snek.north == false && snek.south == false)
       {

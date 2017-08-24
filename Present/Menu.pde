@@ -94,7 +94,9 @@ void levelSelectMenu()
 
 void gameStart()
 {
-  
+  resetMainMenuMusic();
+  textSize(40);
+  text("Press an arrow key to begin playing!", width/5, height/3);
 }
 
 void pauseMenu()
@@ -177,6 +179,10 @@ void controlEvent(ControlEvent theEvent)
    case 1:
    resetMenus();
    mainMenu = true;
+   if (!mainMusic.isPlaying())
+   {
+     mainMusic.loop();
+   }
    break;
    
    //To Level Select
@@ -213,6 +219,7 @@ void controlEvent(ControlEvent theEvent)
    //To Credits
    case 7:
    resetMenus();
+   resetMainMenuMusic();
    creditsMenu = true;
    creditsMusic.loop();
    break;

@@ -1,3 +1,5 @@
+/* Class that contains all of the functions for saving high scores and progression */
+
 PrintWriter scores, progression;
 Table table;
 boolean saveExists, progressionExists = false;
@@ -74,6 +76,8 @@ void updateScores()
   }
   
   saveTable(table, "Data/Scores.csv");
+  
+  newScore = 0;
 }
 
 //Loads the High Scores into a table

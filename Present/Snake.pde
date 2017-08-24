@@ -1,3 +1,5 @@
+/* Class that holds all of the snake information and functions*/
+
 class Snake
 {
   float x, y, xspeed, yspeed, total;
@@ -9,12 +11,14 @@ class Snake
     
   }
   
+  //updates the direction based on a calculation of speed using 0, 1, and -1
   void dir(float x, float y)
   {
     xspeed = x;
     yspeed = y;
   }
   
+  //increases the x or y position of each tail part and head based on the input of the player and previous direction
   void update()
   {
     if (total > 0) 
@@ -28,8 +32,11 @@ class Snake
 
     x = x + xspeed*scale;
     y = y + yspeed*scale;
+    
+    turn = false;
   }
 
+  //displays the snake head and tail
   void display()
   {
     for (PVector v : tail) 
@@ -40,6 +47,7 @@ class Snake
     image(tile[2], x, y);
   }
 
+  //ends the game and sends it to restart menu when the snake collides with any walls or the tail
   void death()
   {
     for (int i = 0; i < tail.size(); i++) 
@@ -49,30 +57,25 @@ class Snake
       
       if (d < 1) 
       {
-        println("death by tail");
         updateScores();
-        newScore = 0;
-        level[int(food.x/scale)][int(food.y/scale)] = 1;
-        total = 0;
-        tail.clear();
+        snakeReset();
         resetMenus();
         restartMenu = true;
+        restartMusic.loop();
       }
     }
     
     if (level[int(y/scale)][int(x/scale)] == 0)
       {
-        println("death by colision");
         updateScores();
-        newScore = 0;
-        level[int(food.x/scale)][int(food.y/scale)] = 1;
-        total = 0;
-        tail.clear();
+        snakeReset();
         resetMenus();
         restartMenu = true;
+        restartMusic.loop();
       }
   }
 
+  //updates the direction based on user input
   void direction(int num)
   {
       switch (num)
@@ -101,8 +104,11 @@ class Snake
         dir(1, 0);
         break;
       }
+      
+      turn = true;
   }
   
+  //sets the position and direction of the snake for level 1
   void setPosition1()
   {
     x = 3*scale;
@@ -110,6 +116,7 @@ class Snake
     direction(4);
   }
 
+  //sets the position and direction of the snake for level 2
   void setPosition2()
   {
     x = 1*scale;
@@ -117,11 +124,20 @@ class Snake
     direction(4);
   }
 
+  //easy reset of direction booleans
   void resetDirections()
   {
     snek.north = false;
     snek.south = false;
     snek.east = false;
     snek.west = false;
+  }
+  
+  void snakeReset()
+  {
+    total = 0;
+    specialTotal = 1;
+    specialCheck = false;
+    tail.clear();
   }
 }

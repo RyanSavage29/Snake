@@ -44,4 +44,6 @@ quotes based on score
 pokemon with rowlet, maud the cat?
 
 dab animation upon hitting a high score
+
+rwby level
 */

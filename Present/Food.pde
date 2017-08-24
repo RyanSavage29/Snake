@@ -1,13 +1,13 @@
 PVector food, special;
-int specialTotal;
-boolean tailCheck, specialCheck;
+int specialTotal = 1, randSpecial, pickSpecial;
+boolean tailCheck, specialCheck = false;
 
 //Places the food on a tile that doesn't have collision
 void setFood(int row, int col)
 {
   for (PVector v : snek.tail) 
     {
-      if (col == v.y/scale && row == v.x/scale)
+      if (col == v.x/scale && row == v.y/scale)
       {
         tailCheck = true;
         break;
@@ -19,10 +19,19 @@ void setFood(int row, int col)
     }
     
   //need to rework this so that food doesn't change the grid tiles, only builds a food object over it
-  if (level[row][col] == 1 && tailCheck == false/* && !(row == special.x && col == special.y)*/)
+  if (level[row][col] == 1 && tailCheck == false && !specialCheck)
   {
     food = new PVector(row, col);
     food.mult(scale);
+  }
+  
+  else if (specialCheck)
+  {
+    if (level[row][col] == 1 && tailCheck == false && !(row == special.x && col == special.y))
+    {
+      food = new PVector(row, col);
+      food.mult(scale);
+    }
   }
   
   else
@@ -77,16 +86,25 @@ boolean eatFood(PVector pos, float snekX, float snekY)
     return false;
 }
 
-boolean eatSpecial(PVector pos, float snekX, float snekY)
+void eatSpecial(PVector pos, float snekX, float snekY)
 {
   float d = dist(snekX, snekY, pos.x, pos.y);
   
   if (d < 1)
   {
     snek.total++;
-    specialTotal++;
     newScore += (levelCheck * speed) + (specialTotal * speed);
-    return true;
+    specialTotal++;
+    specialCheck = false;
   }
-  return false;
+}
+
+void checkSpecial()
+{
+  if ((randSpecial * specialTotal == int(snek.total)) & !specialCheck)
+  {
+    pickSpecial = int(random(2));
+    setSpecial(int(random(29)), int(random(29)));
+    specialCheck = true;
+  }
 }

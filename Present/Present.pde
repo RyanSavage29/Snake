@@ -1,11 +1,10 @@
  Snake snek;
 
-PImage[] tile;
-int levelCheck = 1;
 float speed = 5;
 
 void setup()
 {
+  //900 x 900 pixel canvas
   size(900, 900);
   
   //Loads all of the tiles into an array
@@ -32,8 +31,12 @@ void setup()
     createProgression();
   }
   */
+  //Creates all of the audio
   createAudio();
+  
   snek = new Snake();
+  
+  mainMusic.loop();
 }
 
 void draw()
@@ -81,6 +84,7 @@ void gameState()
   else if (game == true)
   {
     runGame();
+    
     if (foodAnimation == 0)
     {
       foodAnimation += 1;
@@ -95,21 +99,24 @@ void gameState()
 void runGame()
 {
   frameRate(speed);
-  
   renderGrid();
+  
+  checkSpecial();
+  
+  if (specialCheck)
+  {
+    pickSpecial(8, levelCheck);
+    eatSpecial(special, snek.x, snek.y);
+  }
   
   if (eatFood(food, snek.x, snek.y))
   {
     setFood(int(random(29)), int(random(29)));
   }
   
-  /*if (eatSpecial(special, snek.x, snek.y))
-  {
-    setSpecial(int(random(29)), int(random(29)));
-  }*/
-  
   image(cheese[foodAnimation], food.x, food.y);
-  //image(tile[5], special.x, special.y);
+  
+  
   snek.update();
   snek.display();
   snek.death();
