@@ -105,7 +105,8 @@ void runGame()
   
   if (specialCheck)
   {
-    pickSpecial(8, levelCheck);
+    tempRandom();
+    pickSpecial(temp2, levelCheck);
     eatSpecial(special, snek.x, snek.y);
   }
   

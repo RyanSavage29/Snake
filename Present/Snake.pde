@@ -119,8 +119,8 @@ class Snake
   //sets the position and direction of the snake for level 2
   void setPosition2()
   {
-    x = 1*scale;
-    y = 9*scale;
+    x = 2*scale;
+    y = 15*scale;
     direction(4);
   }
 

@@ -1,5 +1,6 @@
 PImage[] cheese, dragon, cat, bug, jigglepoof, shit, coffee, kirby, moa, tardis, fidget;
 PImage[] acorn, fuzzy, cookie, cage;
+int temp1, temp2;
 int foodAnimation = 1;
 
 void loadFood()
@@ -214,4 +215,20 @@ void regularSpecial(int num)
 void loadCharacter()
 {
   
+}
+
+void tempRandom()
+{
+  temp1 = int(random(2));
+  
+  switch (temp1)
+  {
+    case 0:
+    temp2 = 8;
+    break;
+    
+    case 1:
+    temp2 = 4;
+    break;
+  }
 }
