@@ -116,7 +116,6 @@ void runGame()
   
   image(cheese[foodAnimation], food.x, food.y);
   
-  
   snek.update();
   snek.display();
   snek.death();

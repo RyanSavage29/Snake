@@ -270,7 +270,9 @@ void controlEvent(ControlEvent theEvent)
    //Play Level
    case 16:
    resetMenus();
+   println(levelCheck);
    currentLevel();
+   println(levelCheck);
    gameStart = true;
    setFood(int(random(29)), int(random(29)));
    break;
@@ -381,6 +383,7 @@ void hideMenus()
   toCredits
     .hide()
     .setOff();
+    
     
   toScores
     .hide()

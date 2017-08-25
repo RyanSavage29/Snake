@@ -38,6 +38,7 @@ void loadFood()
   {
     jigglepoof[i] = loadImage(dataPath("Food/jigglepoof" + i + ".png"));
   }
+  */
   
   shit = new PImage[2];
   
@@ -46,6 +47,7 @@ void loadFood()
     shit[i] = loadImage(dataPath("Food/shit" + i + ".png"));
   }
   
+  /*
   coffee = new PImage[2];
   
   for (int i = 0; i < coffee.length; i++)
