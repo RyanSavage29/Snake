@@ -1,59 +1,54 @@
 /* Class that loads and controls all of the music */
 
-import ddf.minim.*;
+import processing.sound.*;
 
-Minim minim;
-AudioPlayer mainMusic, creditsMusic, restartMusic;
-AudioPlayer[] totoro, guildWars;
+SoundFile mainMusic, creditsMusic, restartMusic;
+SoundFile[] totoro, guildWars;
+
+boolean mainMusicIsPlaying = false;
 
 //Loads all of the music in setup
 void createAudio()
-{
-  minim = new Minim(this);
+{ 
+  mainMusic = new SoundFile(this, "Music/PMD_Menu.ogg");
+  creditsMusic = new SoundFile(this, "Music/Queen1.wav");
+  restartMusic = new SoundFile(this, "Music/Undyne_Death.ogg");
   
-  mainMusic = minim.loadFile("Music/PMD_Menu.ogg");
-  creditsMusic = minim.loadFile("Music/Queen1.wav");
-  restartMusic = minim.loadFile("Music/Undyne_Death.ogg");
-  
-  totoro = new AudioPlayer[3];
+  totoro = new SoundFile[3];
   
   for (int i = 0; i < totoro.length; i++)
   {
-    totoro[i] = minim.loadFile("Music/Totoro" + i + ".ogg");
+    totoro[i] = new SoundFile(this, "Music/Totoro" + i + ".ogg");
   }
   
-  guildWars = new AudioPlayer[3];
+  guildWars = new SoundFile[3];
   
   for (int i = 0; i < guildWars.length; i++)
   {
-    guildWars[i] = minim.loadFile("Music/GuildWars" + i + ".ogg");
+    guildWars[i] = new SoundFile(this, "Music/GuildWars" + i + ".ogg");
   }
 }
 
 //Easy to call function that stops all of the music
 void resetMusic()
 { 
-  creditsMusic.rewind();
-  creditsMusic.pause();
+  creditsMusic.stop();
   
-  restartMusic.rewind();
-  restartMusic.pause();
+  restartMusic.stop();
   
   for (int i = 0; i < 3; i++)
   {
-    totoro[i].rewind();
-    totoro[i].pause();
+    totoro[i].stop();
     
-    guildWars[i].rewind();
-    guildWars[i].pause();
+    guildWars[i].stop();
   }
 }
 
 //Easy to call function that stops main menu music
 void resetMainMenuMusic()
 {
-  mainMusic.rewind();
-  mainMusic.pause();
+  mainMusic.stop();
+  mainMusicIsPlaying = false;
 }
 
 //Plays music for each level based on what level it is

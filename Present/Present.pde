@@ -1,4 +1,4 @@
- Snake snek;
+Snake snek;
 
 float speed = 5;
 

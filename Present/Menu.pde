@@ -179,9 +179,10 @@ void controlEvent(ControlEvent theEvent)
    case 1:
    resetMenus();
    mainMenu = true;
-   if (!mainMusic.isPlaying())
+   if (!mainMusicIsPlaying)
    {
      mainMusic.loop();
+     mainMusicIsPlaying = true;
    }
    break;
    
