@@ -1,5 +1,5 @@
 PVector food, special;
-int specialTotal = 1, randSpecial, pickSpecial;
+int specialTotal = 1, randSpecial, pickSpecial, tempTotal;
 boolean tailCheck, specialCheck = false;
 
 //Places the food on a tile that doesn't have collision
@@ -80,6 +80,7 @@ boolean eatFood(PVector pos, float snekX, float snekY)
     if (d < 1) 
     {
       snek.total++;
+      tempTotal = int(snek.total);
       newScore += levelCheck * speed;
       return true;
     } 
@@ -101,10 +102,12 @@ void eatSpecial(PVector pos, float snekX, float snekY)
 
 void checkSpecial()
 {
-  if ((randSpecial * specialTotal == int(snek.total)) & !specialCheck)
+  //if ((randSpecial * specialTotal == int(snek.total)) & !specialCheck)
+  if ((tempTotal == int(snek.total)) && !specialCheck)
   {
     pickSpecial = int(random(2));
     setSpecial(int(random(29)), int(random(29)));
+    tempRandom();
     specialCheck = true;
   }
 }

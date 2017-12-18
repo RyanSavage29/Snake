@@ -98,6 +98,7 @@ void gameState()
 
 void runGame()
 {
+  println(temp1);
   frameRate(speed);
   renderGrid();
   
@@ -105,8 +106,7 @@ void runGame()
   
   if (specialCheck)
   {
-    tempRandom();
-    pickSpecial(temp2, levelCheck);
+    pickSpecial(temp1, levelCheck);
     eatSpecial(special, snek.x, snek.y);
   }
   

@@ -11,22 +11,22 @@ void createAudio()
 {
   minim = new Minim(this);
   
-  mainMusic = minim.loadFile("Music/PMD Menu.wav");
+  mainMusic = minim.loadFile("Music/PMD_Menu.ogg");
   creditsMusic = minim.loadFile("Music/Queen1.wav");
-  restartMusic = minim.loadFile("Music/Undyne Death.wav");
+  restartMusic = minim.loadFile("Music/Undyne_Death.ogg");
   
   totoro = new AudioPlayer[3];
   
   for (int i = 0; i < totoro.length; i++)
   {
-    totoro[i] = minim.loadFile("Music/Totoro" + i + ".wav");
+    totoro[i] = minim.loadFile("Music/Totoro" + i + ".ogg");
   }
   
   guildWars = new AudioPlayer[3];
   
   for (int i = 0; i < guildWars.length; i++)
   {
-    guildWars[i] = minim.loadFile("Music/GuildWars" + i + ".mp3");
+    guildWars[i] = minim.loadFile("Music/GuildWars" + i + ".ogg");
   }
 }
 

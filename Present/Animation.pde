@@ -1,6 +1,6 @@
 PImage[] cheese, dragon, cat, bug, jigglepoof, shit, coffee, kirby, moa, tardis, fidget;
 PImage[] acorn, fuzzy, cookie, cage;
-int temp1, temp2;
+int temp1, temp2, tempCheck = -1;
 int foodAnimation = 1;
 
 void loadFood()
@@ -11,7 +11,7 @@ void loadFood()
   {
     cheese[i] = loadImage(dataPath("Food/cheese" + i + ".png"));
   }
-  /*
+  
   dragon = new PImage[2];
   
   for (int i = 0; i < dragon.length; i++)
@@ -32,7 +32,7 @@ void loadFood()
   {
     bug[i] = loadImage(dataPath("Food/bug" + i + ".png"));
   }
-  
+  /*
   jigglepoof = new PImage[2];
   
   for (int i = 0; i < jigglepoof.length; i++)
@@ -40,7 +40,6 @@ void loadFood()
     jigglepoof[i] = loadImage(dataPath("Food/jigglepoof" + i + ".png"));
   }
   */
-  
   shit = new PImage[2];
   
   for (int i = 0; i < shit.length; i++)
@@ -48,7 +47,7 @@ void loadFood()
     shit[i] = loadImage(dataPath("Food/shit" + i + ".png"));
   }
   
-  /*
+  
   coffee = new PImage[2];
   
   for (int i = 0; i < coffee.length; i++)
@@ -69,14 +68,14 @@ void loadFood()
   {
     moa[i] = loadImage(dataPath("Food/moa" + i + ".png"));
   }
-  */
+  
   tardis = new PImage[2];
   
   for (int i = 0; i < tardis.length; i++)
   {
     tardis[i] = loadImage(dataPath("Food/tardis" + i + ".png"));
   }
-  /*
+  
   fidget = new PImage[2];
   
   for (int i = 0; i < fidget.length; i++)
@@ -97,7 +96,6 @@ void loadFood()
   {
     fuzzy[i] = loadImage(dataPath("Food/fuzzy" + i + ".png"));
   }
-  */
   
   cookie = new PImage[2];
   
@@ -106,14 +104,13 @@ void loadFood()
     cookie[i] = loadImage(dataPath("Food/cookie" + i + ".png"));
   }
   
-  /*
   cage = new PImage[2];
   
   for (int i = 0; i < cage.length; i++)
   {
     cage[i] = loadImage(dataPath("Food/cage" + i + ".png"));
   }
-  */
+  
 }
 
 void pickSpecial(int num, int levelCheck)
@@ -153,11 +150,11 @@ void guildWarsSpecial(int num)
   switch (num)
   {
     case 10:
-    image(tardis[foodAnimation], special.x, special.y);
+    image(cookie[foodAnimation], special.x, special.y);
     break;
     
     case 11:
-    image(cookie[foodAnimation], special.x, special.y);
+    image(cage[foodAnimation], special.x, special.y);
     break;
     
     default:
@@ -219,16 +216,17 @@ void loadCharacter()
 
 void tempRandom()
 {
-  temp1 = int(random(2));
+  temp1 = int(random(12));
   
-  switch (temp1)
+  if (temp1 == 3)
   {
-    case 0:
-    temp2 = 8;
-    break;
-    
-    case 1:
-    temp2 = 4;
-    break;
+    tempRandom();
   }
+  
+  if (tempCheck == temp1)
+  {
+    tempRandom();
+  }
+  
+  tempCheck = temp1;
 }
