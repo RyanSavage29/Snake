@@ -3,6 +3,8 @@ import controlP5.*;
 ControlP5 gui;
 controlP5.Button toMain, toPlay, toCredits, toScores, toQuit, playLevel, backToMain, resume, restart, selectLeft, selectRight, speed1, speed2, speed3;
 
+PImage[] backgroundImage;
+
 /*
 playLevel, resume, restart, selectRight, selectLeft, speed1, speed2, and speed3 all will have different effects other than menus
 
@@ -20,8 +22,21 @@ Restart \
 boolean mainMenu = true;
 boolean levelSelectMenu, gameStart, pauseMenu, restartMenu, highScores, creditsMenu, game = false;
 
+void loadBackground()
+{
+  backgroundImage = new PImage[5];
+  
+  backgroundImage[0] = loadImage("Background/mainmenu.jpg");
+  backgroundImage[1] = loadImage("Background/start.jpg");
+  backgroundImage[2] = loadImage("Background/totoro.jpg");
+  backgroundImage[3] = loadImage("Background/guildwars.jpg");
+  backgroundImage[4] = loadImage("Background/death.jpg");
+}
+
 void mainMenu()
 {
+  background(backgroundImage[0]);
+  
   toPlay
     .setPosition(width/2 - 150, 450)
     .setSize(300, 75)
@@ -57,6 +72,8 @@ void levelSelectMenu()
     
   if (levelCheck > 1)
   {
+    background(backgroundImage[3]);
+    
     selectLeft
       .setPosition(50, 450)
       .setSize(50, 75)
@@ -66,6 +83,8 @@ void levelSelectMenu()
     
   if (levelCheck < 2)
   {
+    background(backgroundImage[2]);
+    
     selectRight
       .setPosition(800, 450)
       .setSize(50, 75)
@@ -94,6 +113,8 @@ void levelSelectMenu()
 
 void gameStart()
 {
+  background(backgroundImage[1]);
+  
   resetMainMenuMusic();
   textSize(40);
   text("Press an arrow key to begin playing!", width/5, height/3);
@@ -122,6 +143,8 @@ void pauseMenu()
 
 void restartMenu()
 {
+  background(backgroundImage[4]);
+  
   restart
     .setPosition(width/2 - 150, 250)
     .setSize(300, 75)
@@ -384,7 +407,6 @@ void hideMenus()
   toCredits
     .hide()
     .setOff();
-    
     
   toScores
     .hide()

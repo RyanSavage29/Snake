@@ -13,6 +13,9 @@ void setup()
   //Loads all of the food and special sprites into an array
   loadFood();
   
+  //Loads all of the backgrounds into an array
+  loadBackground();
+  
   //Creates and sets all the menus as hidden and off
   setMenus();
   

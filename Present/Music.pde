@@ -5,13 +5,13 @@ import processing.sound.*;
 SoundFile mainMusic, creditsMusic, restartMusic;
 SoundFile[] totoro, guildWars;
 
-boolean mainMusicIsPlaying = false;
+boolean mainMusicIsPlaying = true;
 
 //Loads all of the music in setup
 void createAudio()
 { 
   mainMusic = new SoundFile(this, "Music/PMD_Menu.ogg");
-  creditsMusic = new SoundFile(this, "Music/Queen1.wav");
+  creditsMusic = new SoundFile(this, "Music/Queen.ogg");
   restartMusic = new SoundFile(this, "Music/Undyne_Death.ogg");
   
   totoro = new SoundFile[3];
