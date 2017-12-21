@@ -1,0 +1,11 @@
+TO DO
+
+- Create a sprite sheet for all of the sprites and tiles already made
+
+- Finish finding music and sound effects, convert to .ogg, normalize all of the audio
+
+- Look online for art assets, sprites, sprite sheets, tiles, and tile sheets
+
+- Find font for the menus, text, and score
+
+- Fix location spawn so it isnt in snake
