@@ -1,5 +1,7 @@
 boolean turn = false;
 
+int previousDirection, direction;
+
 void keyPressed()
 {
   if (key == CODED)
@@ -8,21 +10,25 @@ void keyPressed()
     {
       if (keyCode == UP && snek.north == false && snek.south == false)
       {
+        previousDirection = direction;
         snek.direction(1);
       }
     
       if (keyCode == DOWN && snek.south == false && snek.north == false)
       {
+        previousDirection = direction;
         snek.direction(2);
       }
     
       if (keyCode == LEFT && snek.west == false && snek.east == false)
       {
+        previousDirection = direction;
         snek.direction(3);
       }
     
       if (keyCode == RIGHT && snek.east == false && snek.west == false)
       {
+        previousDirection = direction;
         snek.direction(4);
       }
     }

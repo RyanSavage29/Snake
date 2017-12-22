@@ -2,9 +2,11 @@
 
 class Snake
 {
-  float x, y, xspeed, yspeed, total;
+  float x, y, z, w, xspeed, yspeed, total;
   boolean north = false, south = false, west = false, east = false;
   ArrayList<PVector> tail = new ArrayList<PVector>();
+  ArrayList<PVector> tailDirection = new ArrayList<PVector>();
+  ArrayList<PVector> tailTimer = new ArrayList<PVector>();
   
   Snake()
   {
@@ -14,8 +16,48 @@ class Snake
   //updates the direction based on a calculation of speed using 0, 1, and -1
   void dir(float x, float y)
   {
+    if (xspeed == 1)
+    {
+      z = 4;
+    }
+    
+    else if (xspeed == -1)
+    {
+      z = 3;
+    }
+    
+    else if (yspeed == 1)
+    {
+      z = 2;
+    }
+    
+    else if (yspeed == -1)
+    {
+      z = 1;
+    }
+    
     xspeed = x;
     yspeed = y;
+    
+    if (xspeed == 1)
+    {
+      w = 4;
+    }
+    
+    else if (xspeed == -1)
+    {
+      w = 3;
+    }
+    
+    else if (yspeed == 1)
+    {
+      w = 2;
+    }
+    
+    else if (yspeed == -1)
+    {
+      w = 1;
+    }
   }
   
   //increases the x or y position of each tail part and head based on the input of the player and previous direction
@@ -26,8 +68,10 @@ class Snake
       if (total == tail.size() && !tail.isEmpty()) 
       {
         tail.remove(0);
+        tailDirection.remove(0);
       }
       tail.add(new PVector(x, y));
+      tailDirection.add(new PVector(z, w));
     }
 
     x = x + xspeed*scale;
@@ -39,12 +83,12 @@ class Snake
   //displays the snake head and tail
   void display()
   {
-    for (PVector v : tail) 
+    for (int i = 0; i < tail.size(); i++)
     {
-      image(tile[2], v.x, v.y);
+      displayTail(tail.get(i).x, tail.get(i).y, tailDirection.get(i).x, tailDirection.get(i).y);
     }
     
-    image(tile[2], x, y);
+    displayHead(x, y);
   }
 
   //ends the game and sends it to restart menu when the snake collides with any walls or the tail
@@ -84,24 +128,28 @@ class Snake
         resetDirections();
         north = true;
         dir(0, -1);
+        direction = 1;
         break;
     
         case 2:
         resetDirections();
         south = true;
         dir(0, 1);
+        direction = 2;
         break;
     
         case 3:
         resetDirections();
         west = true;
         dir(-1, 0);
+        direction = 3;
         break;
     
         case 4:
         resetDirections();
         east = true;
         dir(1, 0);
+        direction = 4;
         break;
       }
       
@@ -114,6 +162,8 @@ class Snake
     x = 3*scale;
     y = 3*scale;
     direction(4);
+    direction = 4;
+    previousDirection = 2;
   }
 
   //sets the position and direction of the snake for level 2
@@ -122,6 +172,8 @@ class Snake
     x = 2*scale;
     y = 15*scale;
     direction(4);
+    direction = 4;
+    previousDirection = 2;
   }
 
   //easy reset of direction booleans
@@ -139,5 +191,6 @@ class Snake
     specialTotal = 1;
     specialCheck = false;
     tail.clear();
+    tailDirection.clear();
   }
 }

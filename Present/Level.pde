@@ -123,7 +123,7 @@ void renderGrid()
 //Loads all of the tiles into an array
 void loadTiles()
 {
-  tile = new PImage[3];
+  tile = new PImage[13];
   
   for (int i = 0; i < tile.length; i++)
   {

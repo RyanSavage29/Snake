@@ -101,7 +101,7 @@ void gameState()
 
 void runGame()
 {
-  println(temp1);
+  //println(temp1);
   frameRate(speed);
   renderGrid();
   
