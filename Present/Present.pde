@@ -8,7 +8,7 @@ void setup()
   size(900, 900);
   
   //Loads all of the tiles into an array
-  loadTiles();
+  loadSprites();
   
   //Loads all of the food and special sprites into an array
   loadFood();
@@ -36,6 +36,9 @@ void setup()
   */
   //Creates all of the audio
   createAudio();
+  
+  //Creates all of the fonts
+  createFonts();
   
   snek = new Snake();
   
@@ -101,7 +104,6 @@ void gameState()
 
 void runGame()
 {
-  //println(temp1);
   frameRate(speed);
   renderGrid();
   
@@ -115,7 +117,7 @@ void runGame()
   
   if (eatFood(food, snek.x, snek.y))
   {
-    setFood(int(random(29)), int(random(29)));
+    setFood(food, int(random(29)), int(random(29)), snek.x, snek.y);
   }
   
   image(cheese[foodAnimation], food.x, food.y);

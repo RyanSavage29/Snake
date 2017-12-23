@@ -3,7 +3,9 @@ import controlP5.*;
 ControlP5 gui;
 controlP5.Button toMain, toPlay, toCredits, toScores, toQuit, playLevel, backToMain, resume, restart, selectLeft, selectRight, speed1, speed2, speed3;
 
-PImage[] backgroundImage;
+PImage[] backgroundImage, buttonImage;
+
+PFont scoresFont, gameFont, loadFont;
 
 /*
 playLevel, resume, restart, selectRight, selectLeft, speed1, speed2, and speed3 all will have different effects other than menus
@@ -22,41 +24,60 @@ Restart \
 boolean mainMenu = true;
 boolean levelSelectMenu, gameStart, pauseMenu, restartMenu, highScores, creditsMenu, game = false;
 
+void createFonts()
+{
+  scoresFont = createFont("Font/syncopate-regular.ttf", 32);
+  gameFont = createFont("Font/FinkHeavy.ttf", 24);
+}
+
 void loadBackground()
 {
-  backgroundImage = new PImage[5];
+  backgroundImage = new PImage[8];
   
   backgroundImage[0] = loadImage("Background/mainmenu.jpg");
   backgroundImage[1] = loadImage("Background/start.jpg");
   backgroundImage[2] = loadImage("Background/totoro.jpg");
-  backgroundImage[3] = loadImage("Background/guildwars.jpg");
-  backgroundImage[4] = loadImage("Background/death.jpg");
+  backgroundImage[3] = loadImage("Background/totoro2.jpg");
+  backgroundImage[4] = loadImage("Background/guildwars.jpg");
+  backgroundImage[5] = loadImage("Background/guildwars2.jpg");
+  backgroundImage[6] = loadImage("Background/death.jpg");
+  backgroundImage[7] = loadImage("Background/sick.jpg");
+}
+
+void loadButtonImages()
+{
+  
 }
 
 void mainMenu()
 {
   background(backgroundImage[0]);
   
+  if (clean)
+  {
+    background(backgroundImage[7]);
+  }
+  
   toPlay
-    .setPosition(width/2 - 150, 450)
+    .setPosition(width/4 - 150, 650)
     .setSize(300, 75)
     .show()
     .setOn();
     
   toCredits
-    .setPosition(width/2 - 150, 550)
+    .setPosition(width/2 + 50, 650)
     .setSize(300, 75)
     .show()
     .setOn();
     
   toScores
-    .setPosition(width/2 - 150, 650)
+    .setPosition(width/4 - 150, 750)
     .setSize(300, 75)
     .show()
     .setOn();
     
   toQuit
-    .setPosition(width/2 - 150, 750)
+    .setPosition(width/2 + 50, 750)
     .setSize(300, 75)
     .show()
     .setOn();
@@ -65,28 +86,51 @@ void mainMenu()
 void levelSelectMenu()
 {
   playLevel
-    .setPosition(width/2 - 150, 100)
-    .setSize(300, 75)
+    .setPosition(width/2 + 150, 100)
+    .setSize(200, 75)
     .show()
     .setOn();
     
-  if (levelCheck > 1)
+    backToMain
+    .setPosition(width/4 - 175, 100)
+    .setSize(100, 75)
+    .show()
+    .setOn();
+    
+  if (levelCheck == 2)
   {
-    background(backgroundImage[3]);
+    background(backgroundImage[4]);
     
     selectLeft
       .setPosition(50, 450)
       .setSize(50, 75)
       .show()
       .setOn();
+    
+    selectRight
+      .setPosition(800, 450)
+      .setSize(50, 75)
+      .show()
+      .setOn();
   }
     
-  if (levelCheck < 2)
+  if (levelCheck == 1)
   {
     background(backgroundImage[2]);
     
     selectRight
       .setPosition(800, 450)
+      .setSize(50, 75)
+      .show()
+      .setOn();
+  }
+  
+  if (levelCheck == 3)
+  {
+    background(backgroundImage[1]);
+    
+    selectLeft
+      .setPosition(50, 450)
       .setSize(50, 75)
       .show()
       .setOn();
@@ -113,11 +157,24 @@ void levelSelectMenu()
 
 void gameStart()
 {
-  background(backgroundImage[1]);
+  if (levelCheck == 1)
+  {
+    background(backgroundImage[3]);
+  }
+  else if (levelCheck == 2)
+  {
+    background(backgroundImage[5]);
+  }
+  else if (levelCheck == 3)
+  {
+    background(backgroundImage[7]);
+  }
   
   resetMainMenuMusic();
+  textFont(gameFont);
   textSize(40);
-  text("Press an arrow key to begin playing!", width/5, height/3);
+  fill(255, 255, 255);
+  text("Press an arrow key to begin playing!", width/5 - 50, height - 100);
 }
 
 void pauseMenu()
@@ -143,23 +200,23 @@ void pauseMenu()
 
 void restartMenu()
 {
-  background(backgroundImage[4]);
+  background(backgroundImage[6]);
   
   restart
-    .setPosition(width/2 - 150, 250)
-    .setSize(300, 75)
+    .setPosition(150 - 75, 800)
+    .setSize(150, 75)
     .show()
     .setOn();
     
   toMain
-    .setPosition(width/2 - 150, 500)
-    .setSize(300, 75)
+    .setPosition(450 - 75, 800)
+    .setSize(150, 75)
     .show()
     .setOn();
     
   toQuit
-    .setPosition(width/2 - 150, 750)
-    .setSize(300, 75)
+    .setPosition(750 - 75, 800)
+    .setSize(150, 75)
     .show()
     .setOn();
 }
@@ -168,6 +225,8 @@ void restartMenu()
 //Prints the High Scores onto the Screen
 void highScores()
 {
+  //background(backgroundImage[1]);
+  
   backToMain
     .setPosition(width/2 - 150, 750)
     .setSize(300, 75)
@@ -263,7 +322,8 @@ void controlEvent(ControlEvent theEvent)
    resetMenus();
    currentLevel();
    gameStart = true;
-   setFood(int(random(17)), int(random(17)));
+   specialCount = 0;
+   setInitialFood(int(random(29)), int(random(29)));
    break;
    
    //Check Levels to the Left
@@ -298,7 +358,8 @@ void controlEvent(ControlEvent theEvent)
    currentLevel();
    println(levelCheck);
    gameStart = true;
-   setFood(int(random(29)), int(random(29)));
+   specialCount = 0;
+   setInitialFood(int(random(29)), int(random(29)));
    break;
   }
  hideMenus();

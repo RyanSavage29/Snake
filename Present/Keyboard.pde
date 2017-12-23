@@ -1,9 +1,17 @@
-boolean turn = false;
+boolean turn = false, clean = false;
 
 int previousDirection, direction;
 
 void keyPressed()
 {
+  if (mainMenu == true && !clean)
+    {
+      if (key == 'q' || key == 'Q')
+      {
+        clean = true;
+      }
+    }
+    
   if (key == CODED)
   {
     if (game == true && !turn)

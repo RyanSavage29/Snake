@@ -93,15 +93,17 @@ void printHighScores()
 {
   loadSave();
   
+  textFont(scoresFont);
+  fill(255, 255, 255);
   textSize(26);
   
-  text("High Scores", width/3, 50);
-  text("Date", 600, 50);
+  text("High Scores", width/3 - 120, 50);
+  text("Date", 600 - 30, 50);
   
   for (int i = 0; i < 5; i++)
   {
     TableRow row = table.getRow(i);
-    text(row.getInt("Score"), width/3, 125 + (i * 125));
-    text(row.getString("Date"), 600, 125 + (i * 125));
+    text(row.getInt("Score"), width/3 - 55, 125 + (i * 125));
+    text(row.getString("Date"), 600 - 55, 125 + (i * 125));
   }
 }

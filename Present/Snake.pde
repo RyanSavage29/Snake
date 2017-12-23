@@ -175,7 +175,17 @@ class Snake
     direction = 4;
     previousDirection = 2;
   }
-
+  
+  //sets the position and direction of the snake for level 3
+  void setPosition3()
+  {
+    x = 2*scale;
+    y = 15*scale;
+    direction(4);
+    direction = 4;
+    previousDirection = 2;
+  }
+  
   //easy reset of direction booleans
   void resetDirections()
   {
