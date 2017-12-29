@@ -213,22 +213,50 @@ void displayHead(float x, float y)
 {
   if ((direction == 1 && previousDirection == 3) || (direction == 3 && previousDirection == 1))
   {
-    image(head[4], x, y);
+    if (levelCheck == 2)
+    {
+      image(head[6], x, y);
+    }
+    else
+    {
+      image(head[3], x, y);
+    }
   }
   
   else if ((direction == 1 && previousDirection == 4) || (direction == 4 && previousDirection == 1))
   {
-    image(head[2], x, y);
+    if (levelCheck == 2)
+    {
+      image(head[7], x, y);
+    }
+    else
+    {
+      image(head[2], x, y);
+    }
   }
   
   else if ((direction == 2 && previousDirection == 3) || (direction == 3 && previousDirection == 2))
   {
-    image(head[1], x, y);
+    if (levelCheck == 2)
+    {
+      image(head[5], x, y);
+    }
+    else
+    {
+      image(head[1], x, y);
+    }
   }
   
   else if ((direction == 2 && previousDirection == 4) || (direction == 4 && previousDirection == 2))
   {
-    image(head[0], x, y);
+    if (levelCheck == 2)
+    {
+      image(head[4], x, y);
+    }
+    else
+    {
+      image(head[0], x, y);
+    }
   }
 }
 
@@ -236,26 +264,22 @@ void displayTail(float x, float y, float z, float w)
 {
   if ((w == 1 && z == 3) || (w == 3 && z == 1))
   {
-    //image(tile[12], x, y);
-    image(tail[4], x, y);
+    image(tail[2], x, y);
   }
   
  else if ((w == 1 && z == 4) || (w == 4 && z == 1))
   {
-    //image(tile[11], x, y);
-    image(tail[2], x, y);
+    image(tail[3], x, y);
   }
   
   else if ((w == 2 && z == 3) || (w == 3 && z == 2))
   {
-    //image(tile[10], x, y);
-    image(tail[1], x, y);
+    image(tail[0], x, y);
   }
   
   else if ((w == 2 && z == 4) || (w == 4 && z == 2))
   {
-    //image(tile[3], x, y);
-    image(tail[0], x, y);
+    image(tail[1], x, y);
   }
 }
 

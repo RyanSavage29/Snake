@@ -34,7 +34,7 @@ void setFood(PVector pos, int row, int col, float snekX, float snekY)
       }
     }
     
-  if (level[col][row] >= 1 && !tailCheck && !specialCheck && (pos.x == snekX && pos.y == snekY))
+  if (level[col][row] >= 1 && level[col][row] != 10 && !tailCheck && !specialCheck && (pos.x == snekX && pos.y == snekY))
   {
     specialCount += 1;
     food = new PVector(row, col);
@@ -80,7 +80,7 @@ void setSpecial(int row, int col)
       }
     }
     
-  if (level[row][col] >= 1 && !tailCheck && !(row == food.x/scale && col == food.y/scale))
+  if (level[row][col] >= 1 && level[col][row] != 10 && !tailCheck && !(row == food.x/scale && col == food.y/scale))
   {
     special = new PVector(row, col);
     special.mult(scale);

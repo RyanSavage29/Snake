@@ -109,7 +109,7 @@ class Snake
       }
     }
     
-    if (level[int(y/scale)][int(x/scale)] == 0)
+    if (level[int(y/scale)][int(x/scale)] == 0 || level[int(y/scale)][int(x/scale)] == 10)
       {
         updateScores();
         snakeReset();

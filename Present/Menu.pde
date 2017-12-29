@@ -153,6 +153,19 @@ void levelSelectMenu()
     .setSize(100, 100)
     .show()
     .setOn();
+    
+  textFont(gameFont);
+  textSize(75);
+  for (int x = -1; x < 2; x++)
+  {
+    for (int y = -1; y < 2; y++)
+    {
+      fill(0, 0, 0);
+      text("Select a Speed", (width/2 - 225) + x, (height - 175) + y);
+    }
+  }
+  fill(255, 255, 255);
+  text("Select a Speed", width/2 - 225, height - 175);
 }
 
 void gameStart()
